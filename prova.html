@@ -19,6 +19,11 @@
             scale="1 1 1"
             obj-model="obj: url(/media/Mario.obj);"
             animation="property: rotation; dur: 6000; to: 0 360 0; loop: true; easing: linear;"
+                  <a-scene>
+        <a-entity id="scene" gltf-model="#scene" position="0 0 -5" scale="0.1 0.1 0.1" animation-mixer="clip: scene;"></a-entity>
+        <a-camera></a-camera>
+    </a-scene>
+
             > </a-entity>
     </a-marker> 
 
