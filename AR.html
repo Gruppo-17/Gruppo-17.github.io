@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html>
-<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-<!-- we import arjs version without NFT but with marker + location based support -->
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
-<head>
+  <head>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-</head>
+  </head>
 
-<body>
-
+  <body>
     <a-scene vr-mode-ui="enabled: false" embedded arjs>
+      <a-marker type="pattern" url="patterns/pattern-marker.patt">
+        <a-entity
+          position="0 0 0"
+          scale="1 1 1"
+          obj-model="obj: url(/media/Mario.obj);"
+          animation__rotate="property: rotation; dur: 6000; to: 0 360 0; loop: true; easing: linear;"
+          animation__walk="property: position; dur: 5000; to: 0 0 -5; easing: linear; startEvents: walk;"
+        ></a-entity>
+      </a-marker>
 
-        <a-marker type="pattern" url="patterns/pattern-marker.patt">
-            <a-entity
-            position="0 0 0"
-            scale="1 1 1"
-            obj-model="obj: url(/media/Mario.obj);"
-            animation="property: rotation; dur: 6000; to: 0 360 0; loop: true; easing: linear;"
-            > </a-entity>
-    </a-marker> 
+      <a-entity camera></a-entity>
 
-        <a-entity camera></a-entity>
-
+      <!-- Aggiungi un oggetto per iniziare l'animazione di camminata -->
+      <a-box
+        position="0 1.5 -5"
+        scale="0.5 0.5 0.5"
+        color="red"
+        event-set__start-walk="_event: click; _target: #marker; walk: true"
+      ></a-box>
     </a-scene>
-
-</body>
+  </body>
 </html>
