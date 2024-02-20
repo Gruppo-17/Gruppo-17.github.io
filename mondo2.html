@@ -33,15 +33,15 @@
         // Creazione di un elemento testo
         var text = document.createElement('a-text');
         text.setAttribute('value', 'Benvenuto!');
-        text.setAttribute('position', '0 0.5 -1'); // Posizione della scritta
+        text.setAttribute('position', '0 0.5 -3'); // Posizione della scritta
         text.setAttribute('color', 'red'); // Colore del testo
         text.setAttribute('align', 'center'); // Allineamento del testo
-        text.setAttribute('scale', '2 2 2'); // Dimensione del testo
+        text.setAttribute('scale', '0.02 0.02 0.02'); // Dimensione del testo
 
         // Aggiunta dell'elemento testo alla scena
         var scene = document.querySelector('a-scene');
         scene.appendChild(text);
-    }, 3000); // Aggiungi la scritta dopo 3 secondi (3000 millisecondi)
+    }, 7000); // Aggiungi la scritta dopo 3 secondi (3000 millisecondi)
 </script>
 
 </body>
