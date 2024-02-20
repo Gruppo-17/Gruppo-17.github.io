@@ -13,13 +13,16 @@
     <a-marker type="pattern" url="patterns/pattern-marker.patt">
         <a-entity position="0 0 0" scale="0.02 0.02 0.02"
             obj-model="obj: url(/media/Earth.obj);"
-            animation="property: rotation; dur: 6000; to: 0 720 0; loop: false; easing: linear; 
-                       startEvents: markerFound;">
+            animation="property: rotation; dur: 5000; to: 0 360 0; loop: true; easing: linear;"
+            id="earthModel"> <!-- Aggiungi un ID all'oggetto 3D -->
+
+            <!-- Materiale per la texture del modello -->
             <a-entity material="src: url(/media/Earth_Diffuse.jpeg);"></a-entity>
 
-            <a-image id="pin" src="/media/pin.png" position="0 1.2 0.3" scale="0">
-                <a-animation begin="animationcomplete" attribute="scale" to="0.3 0.3 0.3" dur="500"></a-animation>
-            </a-image>
+            <!-- Aggiungi il pin come componente separato -->
+            <a-entity id="pin" visible="false" position="0 1.5 0" scale="0.05 0.05 0.05">
+                <a-image src="/media/pin.png"></a-image>
+            </a-entity>
 
         </a-entity>
     </a-marker>
@@ -27,6 +30,15 @@
     <a-entity camera></a-entity>
 
 </a-scene>
+
+<script>
+    // Funzione per far comparire il pin dopo un certo periodo di tempo
+    setTimeout(function() {
+        var pin = document.getElementById('pin');
+        pin.setAttribute('visible', true); // Imposta il pin visibile
+    }, 5000); // Dopo 5 secondi, quando l'animazione del modello 3D è completata
+
+</script>
 
 </body>
 </html>
