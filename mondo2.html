@@ -13,10 +13,18 @@
     <a-marker type="pattern" url="patterns/pattern-marker.patt">
         <a-entity position="0 0 0" scale="0.02 0.02 0.02"
             obj-model="obj: url(/media/Earth.obj);"
-     animation="property: rotation; dur: 6000; to: 360 360 0; loop: true; easing: linear;"
-                 <a-entity material="src: url(/media/Earth_Diffuse.jpeg);"></a-entity>
-        <a-image src="/media/pin.png" position="0 1.2 0.3" scale="0.3 0.3 0.3"></a-image>
-            > </a-entity>
+            animation="property: rotation; dur: 6000; to: 0 720 0; loop: false; easing: linear; 
+                       startEvents: markerFound;"
+            animation__showPin="property: components.scale.scale; dur: 500; to: 0.3 0.3 0.3; 
+                                startEvents: animationcomplete">
+
+            <!-- Chiudi prima l'elemento a-entity del modello 3D -->
+            <a-entity material="src: url(/media/Earth_Diffuse.jpeg);"></a-entity>
+
+            <!-- Pin sul modello -->
+            <a-image id="pin" src="/media/pin.png" position="0 1.2 0.3" scale="0"></a-image>
+
+        </a-entity>
     </a-marker>
 
     <a-entity camera></a-entity>
@@ -24,20 +32,11 @@
 </a-scene>
 
 <script>
-    // Funzione per aggiungere una scritta dopo un certo periodo di tempo
-    setTimeout(function() {
-        // Creazione di un elemento testo
-        var text = document.createElement('a-text');
-        text.setAttribute('value', 'spagna');
-        text.setAttribute('position', '0 -0.5 -2'); // Posizione della scritta
-        text.setAttribute('color', 'white'); // Colore del testo
-        text.setAttribute('align', 'center'); // Allineamento del testo
-        text.setAttribute('scale', '0.8 0.8 0.8'); // Dimensione del testo
-
-        // Aggiunta dell'elemento testo alla scena
-        var scene = document.querySelector('a-scene');
-        scene.appendChild(text);
-    }, 9000); // Aggiungi la scritta dopo 3 secondi (3000 millisecondi)
+    // Funzione per far apparire il pin dopo il completamento della rotazione
+    document.querySelector('a-marker').addEventListener('markerFound', function () {
+        var model = document.querySelector('[obj-model]');
+        model.emit('animationcomplete');
+    });
 </script>
 
 </body>
