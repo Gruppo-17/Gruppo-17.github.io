@@ -11,7 +11,7 @@
 <a-scene vr-mode-ui="enabled: false" embedded arjs>
 
     <a-marker type="pattern" url="patterns/pattern-marker.patt">
-        <a-entity position="0 0 0" scale="0.02 0.02 0.02 "
+        <a-entity position="0 0 0" scale="0.02 0.02 0.02"
             obj-model="obj: url(/media/Earth.obj);"
             animation="property: rotation; dur: 6000; to: 0 360 0; loop: true; easing: linear;">
 
@@ -33,10 +33,10 @@
         // Creazione di un elemento testo
         var text = document.createElement('a-text');
         text.setAttribute('value', 'Benvenuto!');
-        text.setAttribute('position', '0 -0.5 -1'); // Posizione della scritta
+        text.setAttribute('position', '0 0.5 -1'); // Posizione della scritta
         text.setAttribute('color', 'white'); // Colore del testo
         text.setAttribute('align', 'center'); // Allineamento del testo
-        text.setAttribute('scale', '0.5 0.5 0.5'); // Dimensione del testo
+        text.setAttribute('scale', '1 1 1'); // Dimensione del testo
 
         // Aggiunta dell'elemento testo alla scena
         var scene = document.querySelector('a-scene');
