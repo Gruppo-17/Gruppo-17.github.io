@@ -23,11 +23,10 @@
 
     <a-entity camera></a-entity>
 
-
 </a-scene>
 
 <script>
-    // Funzione per far comparire il pin e interrompere l'animazione del modello dopo un certo periodo di tempo
+    // Funzione per far comparire il pin e interrompere l'animazione del modello quando è visibile
     setTimeout(function() {
         var pin = document.getElementById('pin');
         pin.setAttribute('visible', true); // Imposta il pin visibile
@@ -35,7 +34,6 @@
         var earthModel = document.getElementById('earthModel');
         earthModel.removeAttribute('animation'); // Rimuovi l'animazione del modello
     }, 5000); // Dopo 5 secondi, quando l'animazione del modello 3D è completata
-
 </script>
 
 </body>
