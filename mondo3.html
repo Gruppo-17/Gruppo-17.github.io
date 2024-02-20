@@ -14,12 +14,10 @@
         <a-entity position="0 0 0" scale="0.02 0.02 0.02"
             obj-model="obj: url(/media/Earth.obj);"
             animation="property: rotation; dur: 6000; to: 0 720 0; loop: false; easing: linear; 
-                       startEvents: markerFound;"
+                       startEvents: markerFound;">
 
-            <!-- Chiudi prima l'elemento a-entity del modello 3D -->
             <a-entity material="src: url(/media/Earth_Diffuse.jpeg);"></a-entity>
 
-            <!-- Pin sul modello -->
             <a-image id="pin" src="/media/pin.png" position="0 1.2 0.3" scale="0">
                 <a-animation begin="animationcomplete" attribute="scale" to="0.3 0.3 0.3" dur="500"></a-animation>
             </a-image>
