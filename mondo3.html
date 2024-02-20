@@ -13,8 +13,8 @@
     <a-marker type="pattern" url="patterns/pattern-marker.patt">
         <a-entity position="0 0 0" scale="0.02 0.02 0.02"
             obj-model="obj: url(/media/Earth.obj);"
-            animation="property: rotation; dur: 6000; to: 0 720 0; loop: false; easing: linear; 
-                       startEvents: markerFound;"
+            animation__rotate="property: rotation; dur: 6000; to: 0 720 0; loop: false; easing: linear;"
+            animation__showPin="property: components.scale.scale; startEvents: animationcomplete; to: 0.3 0.3 0.3; delay: 6000;">
 
             <!-- Chiudi prima l'elemento a-entity del modello 3D -->
             <a-entity material="src: url(/media/Earth_Diffuse.jpeg);"></a-entity>
@@ -28,23 +28,6 @@
     <a-entity camera></a-entity>
 
 </a-scene>
-
-<script>
-    // Funzione per far apparire il pin dopo il completamento della rotazione
-    document.querySelector('a-marker').addEventListener('markerFound', function () {
-        var model = document.querySelector('[obj-model]');
-        var pin = document.getElementById('pin');
-        
-        // Avvia l'animazione di rotazione del modello
-        model.emit('animationstart');
-        
-        // Attendi la fine dell'animazione di rotazione del modello
-        setTimeout(function() {
-            // Avvia l'animazione di apparizione del pin
-            pin.emit('animationstart');
-        }, 6000); // Aggiungi il pin dopo il completamento della rotazione (6000 millisecondi)
-    });
-</script>
 
 </body>
 </html>
