@@ -22,10 +22,11 @@
         </a-marker>
 
          <a-entity
-            position="0 0.01 0" <!-- Posizione del percorso rispetto al marker -->
-            scale="0.05 0.05 0.05" <!-- Scala del percorso -->
+            position="0 0.01 0" 
+            scale="0.026 0.026 0.026" 
             obj-model="obj: url(/media/percorso.obj); mtl: url(/media/percorso.mtl);"
-            animation__fade="property: components.material.material.opacity; from: 0; to: 1; dur: 2000; startEvents: markerFound;" 
+            animation__fade="property: components.material.material.opacity; from: 0; to: 1; dur: 2000; startEvents: markerFound;" <!-- Animazione di fading in -->
+            delay="5000"
         ></a-entity>
 
         <a-entity camera></a-entity>
